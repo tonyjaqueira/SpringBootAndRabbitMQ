@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  rabbitmq:
+    request:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+      exchenge:
+      # o nome "producer" é qualquer nome, aqui esta assim, mas pode ser colcoado o nome que desejar
+        producer: ex.producer.aula-spring  #aqui é nome da exchange que vai interceptyar as requisições
+      routing-key:
+        producer: rk.producer.aula-spring  #aqui é o nome da fila
+      deadletter:
+        producer: dl.producer.aula-spring   # aqui é para caso o processamento de alguma mensagem tenha dado erro, a mesma fica armazenada para que seja processada posteriormente
+      
+       
